@@ -5,7 +5,6 @@ This plugin allow you to write [ForsenCode](GaZaTu/ca2e6e1c9abd8b2da35b9b2d73919
 ## Show case
 [![asciicast](https://asciinema.org/a/511175.png)](https://asciinema.org/a/511175)
 
-
 ## Installation
 
 Install normally using your plugin manager.
@@ -20,6 +19,7 @@ use "rod41732/forsen.nvim"
   - use the command `ForsEnable`/`ForsDisable` to enable/disable this feature
   - enabled automatically in `.forsen` files
 - Encode lines of text using `ForsEncode` command
+- Decode lines of text using `ForsDecode` command
 
 ## Example usages:
 - `nvim foo.forsen` to edit a `forsen` file, encoding will be automatically enabled
@@ -35,7 +35,6 @@ use "rod41732/forsen.nvim"
 
 
 ## TODO
-- `ForsDecode` (the counterpart to `ForsEncode` command)
 - operators to use with text object / motion
 
 
