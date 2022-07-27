@@ -2,6 +2,9 @@
 
 This plugin allow you to write [ForsenCode](GaZaTu/ca2e6e1c9abd8b2da35b9b2d73919ac8/raw/cfbef5546a6da64d90c9e90d13d2c385b416fc31/forsencode-rfc.txt) inside your neovim
 
+## Show case
+[![asciicast](https://asciinema.org/a/511175.png)](https://asciinema.org/a/511175)
+
 
 ## Installation
 
