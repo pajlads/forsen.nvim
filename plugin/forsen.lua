@@ -53,8 +53,11 @@ for ascii = 32, 126 do
 	local char = string.char(ascii)
 	enc[char] = toForsen(ascii)
 end
+-- tab
+local char = string.char(9)
+enc[char] = toForsen(9)
 
--- NOTE: I deliberately don't encode 0-31 (which include <Space>, <CR>, <LF>) to allow text to be formatted
+-- NOTE: I deliberately don't encode 0-31 (which include <Space>, <CR>, <LF>, <Tab>) to allow text to be formatted
 -- WARN this doesn't save & restore keybinding, so plugins that have mappings in insert mode can be broken
 
 local function addKeyMapping()
@@ -63,6 +66,9 @@ local function addKeyMapping()
 		local char = string.char(ascii)
 		vim.keymap.set("i", char, enc[char] .. " ", { buffer = 0 })
 	end
+	local char = string.char(9)
+	vim.keymap.set("i", char, enc[char] .. " ", { buffer = 0 })
+
 	vim.keymap.set("i", "<CR>", function()
 		local cursor = vim.api.nvim_win_get_cursor(0)
 		local row = cursor[1] - 1
@@ -81,6 +87,7 @@ local function removeKeyMapping()
 		-- let's do "try catch" to not error when key isn't mapped
 		pcall(vim.keymap.del, "i", string.char(ascii), { buffer = 0 })
 	end
+	pcall(vim.keymap.del, "i", string.char(9), { buffer = 0 })
 	pcall(vim.keymap.del, "i", "<CR>")
 end
 
@@ -109,7 +116,8 @@ function encodeString(text)
 			if not prev_char_was_invalid and res ~= "" then
 				res = res .. " "
 			end
-			res = res .. enc[char]
+			local encoded = enc[char]
+			res = res .. (encoded or char)
 		end
 	end
 	return res
@@ -136,8 +144,12 @@ vim.api.nvim_create_user_command("DankPrint", dankPrint, { force = true, range =
 vim.api.nvim_create_user_command("ForsEncode", encodeLines, { force = true, range = true })
 vim.api.nvim_create_user_command("ForsDecode", decodeLines, { force = true, range = true })
 
--- dank testing area
---[[
--- ]]
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	group = vim.api.nvim_create_augroup("forsenFtDetect", { clear = true }),
+	pattern = "*.forsen",
+	callback = function()
+		vim.cmd([[set ft=forsen]])
+	end,
+})
 
 return M
