@@ -18,6 +18,11 @@ use "rod41732/forsen.nvim"
   - enabled automatically in `.forsen` files
 - Encode lines of text using `ForsEncode` command
 
+## Example usages:
+- `nvim foo.forsen` to edit a `forsen` file, encoding will be automatically enabled
+- `ForsEnable` when you type text in string literal to obfuscate them
+- highlight lines and use `ForsEncode` to obfuscate them
+
 ## Notes:
 - only characters in ASCII range 32-126 and <Tab> are encoded. Notably, `<Space>`, `<CR>` aren't encoded. This is to allow you to nicely format your ForsenCode by adding space between codeword or splitting into lines
 
@@ -29,3 +34,27 @@ use "rod41732/forsen.nvim"
 ## TODO
 - `ForsDecode` (the counterpart to `ForsEncode` command)
 - operators to use with text object / motion
+
+
+## LICENSE
+The MIT License (MIT)
+
+Copyright (c) 2022 rod41732
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
