@@ -131,6 +131,7 @@ local function encodeLines(opts)
 		lines[i] = encodeString(v)
 	end
 	vim.api.nvim_buf_set_lines(0, st, en + 1, false, lines)
+	print("ForsEncode'd " .. (en - st + 1) .. " line(s)")
 end
 
 local function decodeLines(opts)
