@@ -11,7 +11,7 @@ Install normally using your plugin manager.
 
 - packer.nvim
 ```
-use "rod41732/forsen.nvim"
+use "pajlads/forsen.nvim"
 ```
 
 ## Features
@@ -41,7 +41,7 @@ use "rod41732/forsen.nvim"
 ## LICENSE
 The MIT License (MIT)
 
-Copyright (c) 2022 rod41732
+Copyright (c) 2022 Internet Pajlads Task Force (IPTF)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
